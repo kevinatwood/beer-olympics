@@ -1,0 +1,35 @@
+const { Team } = require('../models');
+
+const teamData = [
+     {
+        "team_name": 'Team #1',
+        
+    }, 
+    {
+        "team_name": 'Team #2',
+    }, 
+    {
+        "team_name": 'Team #3',
+    }, 
+    {
+        "team_name": 'Team #4',
+    }, 
+    {
+        "team_name": 'Team #5',
+        
+    }, 
+    {
+        "team_name": 'Team #6',
+    }, 
+    {
+        "team_name": 'Team #7',
+    }, 
+    {
+        "team_name": 'Team #8',
+    },
+  
+]
+
+const seedTeams = () => Team.bulkCreate(teamData);
+
+module.exports = seedTeams;
