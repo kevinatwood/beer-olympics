@@ -3,7 +3,7 @@ const Team = require('./Team')
 
 Team.hasMany(User, {
   foreignKey: 'team_id',
-  onDelete: 'CASCADE'
+  // onDelete: 'CASCADE'
 })
 
 
