@@ -7,11 +7,13 @@ const seedAll = async () => {
     await sequelize.sync({force: true});
     console.log('\n----- DATABASE SYNCED -----\n');
 
+    await seedTeams();
+    console.log('\n----- TEAMS SEEDED -----\n');
+
     await seedUsers();
     console.log('\n----- USERS SEEDED -----\n');
 
-    await seedTeams();
-    console.log('\n----- TEAMS SEEDED -----\n');
+
 
 
 
