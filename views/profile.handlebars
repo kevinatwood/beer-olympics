@@ -4,30 +4,44 @@
   </div>
 </div>
 
-<div class="row mt-4">
+<div class="row">
   <div class="col-md-6">
-    <h3>Create a New Project:</h3>
+    <h3>Create a New Team:</h3>
 
-    <form class="form new-project-form">
+    <form class="form new-team-form">
       <div class="form-group">
-        <label for="project-name">project name:</label>
-        <input class="form-input" type="text" id="project-name" name="project-name" />
+        <label for="team-name">Team Name:</label>
+        <input class="form-input" type="text" id="team-name" name="project-name" />
       </div>
-      <div class="form-group">
+      {{!-- <div class="form-group">
         <label for="project-funding">needed funding ($):</label>
         <input class="form-input" type="number" id="project-funding" name="project-funding" />
       </div>
       <div class="form-group">
         <label for="project-desc">description:</label>
         <textarea class="form-input" id="project-desc" name="project-desc"></textarea>
-      </div>
+      </div> --}}
       <div class="form-group">
         <button type="submit" class="btn btn-primary">Create</button>
       </div>
     </form>
   </div>
+ <div class="col-md-6">
+    <h3>Join a Current Team:</h3>
 
-  {{#if projects.length}}
+    <form class="form signup-form">
+      <div class="form-group">
+        <label for="name-signup">Team Name:</label>
+        <input class="form-input" type="text" id="name-signup" />
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">Join</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+  {{!-- {{#if projects.length}}
   <div class="col-md-6 project-list">
     <h3>Current Projects:</h3>
 
@@ -43,6 +57,6 @@
     {{/each}}
   </div>
   {{/if}}
-</div>
+</div> --}}
 
 <script src="./js/profile.js"></script>
