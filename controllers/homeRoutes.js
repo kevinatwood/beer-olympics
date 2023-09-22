@@ -40,7 +40,7 @@ router.get('/team/:id', async (req, res) => {
 
     const team = teamData.get({ plain: true });
 
-    res.render('team', {
+    res.render('teamProfile', {
       ...team,
       logged_in: req.session.logged_in
     });
