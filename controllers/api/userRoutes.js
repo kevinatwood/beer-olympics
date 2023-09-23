@@ -13,6 +13,7 @@ router.post('/', async (req, res) => {
     });
   } catch (err) {
     res.status(400).json(err);
+    //todo: error handling- must be unique email, password longer than 8 chars, etc
   }
 });
 
@@ -57,5 +58,33 @@ router.post('/logout', (req, res) => {
     res.status(404).end();
   }
 });
+
+
+router.put('/addteam/:team_id', async (req, res) => {
+  try {
+    const  userId  = req.session.user_id;
+    const { team_id } = req.params;
+
+    // Find the user by ID in the database
+    const user = await User.findByPk(userId);
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    // Update the user's team_id
+    user.team_id = team_id;
+
+    // Save the updated user in the database
+    await user.save();
+
+    res.json({ message: 'User updated successfully', user });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
+
 
 module.exports = router;
