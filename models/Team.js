@@ -14,6 +14,7 @@ Team.init(
     team_name: {
       type: DataTypes.STRING,
       allowNull: false,
+      isUnique: true
     },
   },
   {
