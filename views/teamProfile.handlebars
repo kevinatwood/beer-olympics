@@ -20,33 +20,44 @@
       15px; margin: 10px 0; text-align: center; } .info-box h2 { font-size:
       24px; margin-bottom: 10px; } .info-box h3 { font-size: 18px;
       margin-bottom: 10px; } .info-box ul { list-style: none; padding: 0; }
-      .info-box li { font-size: 16px; margin: 5px 0; }
+      .info-box li { font-size: 16px; margin: 5px 0; } .card-title, h3 {
+      font-weight: bold; } .upnext-box { background-color: #f9f9f9; border: 1px
+      solid #ddd; padding: 15px; text-align: center; } .upnext-box h3 {
+      font-size: 18px; margin-bottom: 10px; }
+
     </style>
   </head>
+
   <body>
+    {{! team info card }}
+    <h2>{{team_name}}</h2>
 
-  </body>
-
-  {{! team info card }}
-  <h2>{{team_name}}</h2>
-
-  <div class='row row-cols-1 row-cols-md-2 g-4'>
-    {{#each users as |user|}}
-      <div class='col'>
-        <div class='card'>
-          <div class='card-body'>
-            <h5 class='card-title'>{{user.name}}</h5>
-            <p class='card-text'>{{user.email}}</p>
+    <div class='row row-cols-1 row-cols-md-2 g-4'>
+      {{#each users as |user|}}
+        <div class='col'>
+          <div class='card'>
+            <div class='card-body'>
+              <h5 class='card-title'>{{user.name}}</h5>
+              <p class='card-text'>{{user.email}}</p>
+            </div>
           </div>
         </div>
-      </div>
-    {{/each}}
-  </div>
+      {{/each}}
+    </div>
 
-  {{! Win/Loss Record Box }}
-  <div class='info-box'>
-    <h3>Win/Loss Record</h3>
-    <p>Wins: {{wins}}</p>
-    <p>Losses: {{losses}}</p>
-  </div>
+    {{! Win/Loss Record Box }}
+    <div class='info-box'>
+      <h3>Win/Loss Record</h3>
+      <p>Wins: {{wins}}</p>
+      <p>Losses: {{losses}}</p>
+    </div>
+    {{! up next box }}
+    <div class='upnext-box'>
+      <h3>Up Next</h3>
+      <p>Check out more teams on the
+        <a href='/views/homepage.handlebars'>homepage</a>.</p>
+    </div>
+  </body>
 </html>
+
+{{! bold keywords }}
