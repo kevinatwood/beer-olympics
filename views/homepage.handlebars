@@ -1,4 +1,18 @@
-<!-- Loop over each object in the projects array -->
+
+<div class="row row-cols-1 row-cols-md-4 g-4">
+  {{#each teams as |team|}}
+  <div class="col">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{team_name}}</h5>
+        <p class="card-text">has {{users.length}} team members</p>
+      </div>
+    </div>
+  </div>
+  {{/each}}
+</div>
+
+{{!-- <!-- Loop over each object in the projects array -->
 {{#each projects as |project| }}
 <div class="row mb-4 project">
   <div class="col-md-5">
@@ -21,4 +35,4 @@
     </p>
   </div>
 </div>
-{{/each}}
+{{/each}} --}}
