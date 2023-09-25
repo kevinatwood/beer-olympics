@@ -14,7 +14,15 @@ Team.init(
     team_name: {
       type: DataTypes.STRING,
       allowNull: false,
+      isUnique: true
     },
+    game_number: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+    previous_game: {
+      type: DataTypes.INTEGER
+    }
   },
   {
     sequelize,

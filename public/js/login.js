@@ -40,6 +40,7 @@ const signupFormHandler = async (event) => {
       document.location.replace('/teamPage');
     } else {
       console.log(response);
+      //todo: error handling- password longer than 8 chars, email unique, etc.
       alert("Enter a valid email and/or password");
     }
   } 
