@@ -36,22 +36,8 @@ const joinTeam = async (event) => {
     if (response.ok) {
       document.location.replace('/');
     } else {
-      alert('Failed to create team');
-    }
-  }
-};
-const delButtonHandler = async (event) => {
-  if (event.target.hasAttribute('data-id')) {
-    const id = event.target.getAttribute('data-id');
-
-    const response = await fetch(`/api/projects/${id}`, {
-      method: 'DELETE',
-    });
-
-    if (response.ok) {
-      document.location.replace('/profile');
-    } else {
-      alert('Failed to delete project');
+      const res = await response.json()
+      alert(res.message);
     }
   }
 };
