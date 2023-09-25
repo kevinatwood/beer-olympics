@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User } = require('../../models');
+const { findAll } = require('../../models/User');
 
 router.post('/', async (req, res) => {
   try {
@@ -59,11 +60,19 @@ router.post('/logout', (req, res) => {
   }
 });
 
-
+// join a team
 router.put('/addteam/:team_id', async (req, res) => {
   try {
     const  userId  = req.session.user_id;
     const { team_id } = req.params;
+
+    if (team_id){
+      const allUsers = await User.findAndCountAll({ where: {team_id} })
+      console.log(allUsers)
+      if (allUsers.count >= 2){
+        return res.status(400).json({ message: "This team is already full!"})
+      }
+    }
 
     // Find the user by ID in the database
     const user = await User.findByPk(userId);

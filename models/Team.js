@@ -16,6 +16,13 @@ Team.init(
       allowNull: false,
       isUnique: true
     },
+    game_number: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+    previous_game: {
+      type: DataTypes.INTEGER
+    }
   },
   {
     sequelize,
