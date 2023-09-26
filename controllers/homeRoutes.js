@@ -13,13 +13,23 @@ router.get('/', async (req, res) => {
         },
       ],
     });
-
+    let teamId = null
+    if(req.session.user_id) {
+    const userData = await User.findByPk(req.session.user_id)
+     teamId = userData.get({plain: true}).team_id
+     } 
     // Serialize data so the template can read it
-    const teams = teamData.map((team) => team.get({ plain: true }));
-
+    const teamsTempData = teamData.map((team) => team.get({ plain: true }));
+    
+    const teams = teamsTempData.map((team) => {
+      return {
+        ...team, 
+        isUserTeam: team.id === teamId,
+      }
+    })
     // Pass serialized data and session flag into template
     res.render('homepage', { 
-      teams, 
+      teams,
       logged_in: req.session.logged_in 
     });
   } catch (err) {

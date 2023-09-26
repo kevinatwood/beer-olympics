@@ -2,12 +2,15 @@
 <div class="row row-cols-1 row-cols-md-4 g-4">
   {{#each teams as |team|}}
   <div class="col">
-    <div class="card">
+    <a href="/team/{{id}}"><div class="card">
       <div class="card-body">
         <h5 class="card-title">{{team_name}}</h5>
         <p class="card-text">has {{users.length}} team members</p>
+        {{#if team.isUserTeam}} 
+        <p>your team</p>
+        {{/if}}
       </div>
-    </div>
+    </div></a>
   </div>
   {{/each}}
 </div>
