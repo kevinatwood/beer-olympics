@@ -5,11 +5,13 @@ const exphbs = require('express-handlebars');
 
 const routes = require('./controllers');
 const helpers = require('./utils/helpers');
+const app = express();
 
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
+app.use(express.static(path.join(__dirname, 'public'))); //added middleware for static images 
 
-const app = express();
+
 const PORT = process.env.PORT || 3001;
 
 // Set up Handlebars.js engine with custom helpers

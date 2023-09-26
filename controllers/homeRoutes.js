@@ -58,11 +58,15 @@ router.get('/teamPage', withAuth, async (req, res) => {
       include: [{ model: Team }],
     });
 
+    const teamData = await Team.findAll()
+
     const user = userData.get({ plain: true });
+    const teams = teamData.map(data => data.get( {plain:true}))
 
     res.render('teamPage', {
       ...user,
-      logged_in: true
+      logged_in: true, 
+      teams,
     });
   } catch (err) {
     res.status(500).json(err);
