@@ -1,14 +1,66 @@
-{{!-- <div class="text-center">
-  <h2>{{name}}</h2>
-  <p>{{{get_emoji}}}</p>
-  <p>{{description}}</p>
-  <p>Created by {{user.name}} on {{format_date date_created}}</p>
-  <p>
-    <span for="img" aria-label="money">💲</span>
-    <span class="dollar-amount">{{format_amount needed_funding}}</span>
-    needed
-  </p>
-  <p>
-    <button class="btn btn-primary">Fund this Project!</button>
-  </p>
-</div> --}}
+{{! style page }}
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>Team Page</title>
+    <style>
+
+      {{! global styles }}
+      body { font-family: Arial, sans-serif; background-color: #f5f5f5; margin:
+      0; padding: 0; } .container { max-width: 800px; margin: 0 auto; padding:
+      20px; }
+
+      {{! Team Container Styles  }}
+      .team-container { background-color: #fff; border: 1px solid #ccc;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); padding: 20px; margin: 20px 0; }
+
+      {{! Box-Styles  }}
+      .info-box { background-color: #f9f9f9; border: 1px solid #ddd; padding:
+      15px; margin: 10px 0; text-align: center; } .info-box h2 { font-size:
+      24px; margin-bottom: 10px; } .info-box h3 { font-size: 18px;
+      margin-bottom: 10px; } .info-box ul { list-style: none; padding: 0; }
+      .info-box li { font-size: 16px; margin: 5px 0; } .card-title, h3 {
+      font-weight: bold; } .upnext-box { background-color: #f9f9f9; border: 1px
+      solid #ddd; padding: 15px; text-align: center; } .upnext-box h3 {
+      font-size: 18px; margin-bottom: 10px; }
+      {{! background--image }}
+      body { margin: 0; padding: 0; font-family: Arial, sans-serif;
+      background-image: url('/public/assets/download-beer.jpg'); background-size: cover; background-position:
+      center; background-repeat: no-repeat; color: #080808; }
+    </style>
+  </head>
+
+  <body>
+    {{! team info card }}
+    <h2>{{team_name}}</h2>
+
+    <div class='row row-cols-1 row-cols-md-2 g-4'>
+      {{#each users as |user|}}
+        <div class='col'>
+          <div class='card'>
+            <div class='card-body'>
+              <h5 class='card-title'>{{user.name}}</h5>
+              <p class='card-text'>{{user.email}}</p>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+
+    {{! Win/Loss Record Box }}
+    <div class='info-box'>
+      <h3>Win/Loss Record</h3>
+      <p>Wins: {{wins}}</p>
+      <p>Losses: {{losses}}</p>
+    </div>
+    {{! up next box }}
+    <div class='upnext-box'>
+      <h3>Up Next</h3>
+      <p>Check out more teams on the
+        <a href='/views/homepage.handlebars'>homepage</a>.</p>
+    </div>
+  </body>
+</html>
+
+{{! bold keywords }}
