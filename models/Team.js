@@ -16,12 +16,21 @@ Team.init(
       allowNull: false,
       isUnique: true
     },
-    game_number: {
+    round_one: {
       type: DataTypes.INTEGER,
       allowNull: true,
     },
-    previous_game: {
-      type: DataTypes.INTEGER
+    round_two: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+    round_three: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    }, 
+    round_four: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
     }
   },
   {
