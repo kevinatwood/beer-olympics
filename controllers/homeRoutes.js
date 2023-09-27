@@ -107,6 +107,7 @@ router.get('/standings', async (req, res) => {
 
     // Serialize data so the template can read it
     const teams = teamData.map((team) => team.get({ plain: true }));
+    console.log(teams)
 
     // Pass serialized data and session flag into template
     res.render('standings', { 
