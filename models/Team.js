@@ -18,19 +18,19 @@ Team.init(
     },
     round_one: {
       type: DataTypes.INTEGER,
-      allowNull: true,
+      defaultValue: 0
     },
     round_two: {
       type: DataTypes.INTEGER,
-      allowNull: true,
+      defaultValue: 0
     },
     round_three: {
       type: DataTypes.INTEGER,
-      allowNull: true,
+      defaultValue: 0
     }, 
     round_four: {
       type: DataTypes.INTEGER,
-      allowNull: true,
+      defaultValue: 0
     }
   },
   {
