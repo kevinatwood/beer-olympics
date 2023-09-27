@@ -9,9 +9,8 @@
   --border-radius: 0.3rem;
 }
 
-
  .nav1 {
-  background-color: #FFFFFF
+  background-color: #FFFFFF;
   align-items: center;
   justify-content: space-evenly;
  }
@@ -22,7 +21,46 @@
   /* align-items: center; */
  justify-content: space-between;
  }
+
+
+
+
 /* CSS */
+
+.toggle {
+  display: none;
+  /* appearance: button;
+  background-color: #1899D6;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: din-round,sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .8px;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  overflow: visible;
+  padding: 13px 16px;
+  text-align: center;
+  touch-action: manipulation;
+  transform: translateZ(0);
+  transition: filter .2s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap; */
+  /* width: 50%; */
+}
+
+
+
+
 .but {
   appearance: button;
   background-color: #1899D6;
@@ -81,7 +119,6 @@
 .but:disabled {
   cursor: auto;
 }
-
 
 
 
@@ -223,7 +260,6 @@ nav {
   border-width: medium;
 }
 
-
 .dish-card-header {
   font-size: 1.5rem;
   color: var(--tertiary);
@@ -246,7 +282,6 @@ nav {
   align-content: flex-start;
   align-items: center;
 }
-
 
 /* Bracket style */
 
@@ -298,3 +333,4 @@ li.game{
   li.game-bottom{ 
     border-top:1px solid #aaa;
   }
+
