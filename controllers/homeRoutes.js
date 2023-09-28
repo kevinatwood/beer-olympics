@@ -120,7 +120,7 @@ router.get('/standings', async (req, res) => {
         },
         {
           model: Team,
-          attributes: ['team_name'],
+          attributes: ['team_name'] , 
         },
       ],
     });

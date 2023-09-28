@@ -1,11 +1,46 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 const { findAll } = require('../../models/User');
+const nodemailer = require("nodemailer");
+const appPassword = 'gzqt egic xbvy ddse'
+
+const transporter = nodemailer.createTransport({
+  host: 'smtp.gmail.com',
+  port: 465,
+  secure: true,
+  auth: {
+    // TODO: replace `user` and `pass` values from <https://forwardemail.net>
+    user: "beerolympics063@gmail.com",
+    pass: appPassword,
+  },
+});
 
 router.post('/', async (req, res) => {
   try {
     const userData = await User.create(req.body);
     console.log(req, userData)
+    async function main() {
+      // send mail with defined transport object
+      const info = await transporter.sendMail({
+        from: '"Beer Olympics" <beerolympics063@gmail.com>', // sender address
+        to: req.body.email, // list of receivers
+        subject: `Welcome To The Beer Olympics, ${req.body.name}!`, // Subject line
+        // text: , // plain text body
+        html: `<p>Hello ${req.body.name}!</p><br><p>It is our pleasure to welcome you to the games of this year's Beer Olympiad. Details of the event to follow. Cheers!</p><br><p>Your Beer Olympics Planning Committee</p>`, // html body
+      });
+    
+      console.log("Message sent: %s", info.messageId);
+      // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+    
+      //
+      // NOTE: You can go to https://forwardemail.net/my-account/emails to see your email delivery status and preview
+      //       Or you can use the "preview-email" npm package to preview emails locally in browsers and iOS Simulator
+      //       <https://github.com/forwardemail/preview-email>
+      //
+    }
+    
+    main().catch(console.error);
+
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
@@ -37,6 +72,7 @@ router.post('/login', async (req, res) => {
         .json({ message: 'Incorrect  password, please try again' });
       return;
     }
+  
 
     req.session.save(() => {
       req.session.user_id = userData.id;
