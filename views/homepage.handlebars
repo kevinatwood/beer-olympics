@@ -63,10 +63,11 @@ background-size: cover;
 <div class="row">
   {{#each teams as |team|}}
   <div class="col">
-    <a href="/team/{{id}}"><div class="card">
-      <div class="card-body">
+    <a href="/team/{{id}}">
+    <div class="card" style="background-color: #389393">
+      <div class="card-body" style="color: white;">
         <h5 class="card-title">{{team_name}}</h5>
-        <p class="card-text">has {{users.length}} team member[s] in your <br>your team.</p>
+        <p class="card-text">has {{users.length}} guzzler[s].</p>
         {{#if team.isUserTeam}} 
         {{!-- <p>your team</p> --}}
         {{/if}}
