@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { User } = require('../../models');
 const { findAll } = require('../../models/User');
 const nodemailer = require("nodemailer");
-const appPassword = 'gzqt egic xbvy ddse'
+// const appPassword = 'gzqt egic xbvy ddse'
 
 const transporter = nodemailer.createTransport({
   host: 'smtp.gmail.com',
@@ -11,7 +11,7 @@ const transporter = nodemailer.createTransport({
   auth: {
     // TODO: replace `user` and `pass` values from <https://forwardemail.net>
     user: "beerolympics063@gmail.com",
-    pass: appPassword,
+    pass: process.env.APP_PASSWORD,
   },
 });
 
