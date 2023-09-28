@@ -1,3 +1,4 @@
+let team1 = [];
 const teamData = async () => {
     try {
       const response = await fetch('/api/standings');
@@ -7,25 +8,21 @@ const teamData = async () => {
       }
   
       const data = await response.json(); // Assuming the response is JSON
-  
+      
       // Handle the data received from the server
-      return data
+      console.log(data)
+
       // You can update your UI or perform other actions here
     } catch (error) {
       // Handle any errors that occurred during the fetch
       console.error('Fetch error:', error);
       // You might want to display an error message to the user
     }
-  }
   
-  
-  console.log(teamData())
-  
-  
-  
+
   
 // Round one team names
-var team1 = ["winner", "Loser", "team3","team4", "team5","team6", "team7","team8"];
+// var team1 = ["winner", "Loser", "team3","team4", "team5","team6", "team7","team8"];
 
 // Round two team names
 var team2 = ["team1", "team2", "team3","team4"];
@@ -275,12 +272,16 @@ b2t4.addEventListener("click", rnd2team4);
 b3t1.addEventListener("click", rnd3team1);
 b3t2.addEventListener("click", rnd3team2);
 
+}
+  
+  
+teamData()
 
 /*Template for PUT route
 
 
 // Define the URL for the PUT request
-const url = '/your-put-route'; // Replace with the actual route URL
+const url = '/api/standings'; // Replace with the actual route URL
 
 // Define the data you want to send in the request body
 const requestData = {

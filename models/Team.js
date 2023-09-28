@@ -15,27 +15,11 @@ Team.init(
       type: DataTypes.STRING,
       allowNull: false,
       isUnique: true
-    },
-    round_one: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-    },
-    round_two: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-    },
-    round_three: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-    }, 
-    round_four: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
     }
   },
   {
     sequelize,
-    timestamps: false,
+    timestamps: true,
     freezeTableName: true,
     underscored: true,
     modelName: 'team',

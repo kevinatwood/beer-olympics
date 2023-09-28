@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Team, User } = require('../../models');
+const { Team, User, Tournament, Round, Game } = require('../../models');
 
 
 
@@ -44,15 +44,35 @@ router.put('/', async (req, res) => {
 
   router.get('/', async (req, res) => {
     try{
-    const teamData = await Team.findAll({
-        include: [
-          {
-            model: User,
-            attributes: ['name'],
-          },
-        ],
-      });
-      res.json(teamData)
+        const teamData = await Team.findAll({
+            include: [
+              {
+                model: User,
+                attributes: ['name'],
+              },
+            ],
+          });
+          const tournamentData = await Tournament.findAll({
+            include: [
+              {
+                model: Round,
+                attributes: ['number']
+              },
+            ],
+          });
+          const gameData = await Round.findAll({
+            include: [
+              {
+                model: Game,
+                attributes: ['team_one', 'team_two', 'winner'],
+              },
+              {
+                model: Team,
+                attributes: ['team_name'],
+              },
+            ],
+          });
+      res.json({teamData,tournamentData, gameData})
 } catch (err) {
     res.status(500).json(err);
   }
