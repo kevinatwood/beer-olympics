@@ -6,14 +6,15 @@
 <style>
 
 body {
-background-image: url(/public/beer-bubbles-abstract-bubbles-yellow-background_3248-267.avif);
+background: url(/beer-bubbles-abstract-bubbles-yellow-background_3248-267.avif);
+background-size: cover;
 
 }
 
 .anim {
   opacity: 0;
-  transform: translateY(30px);
-  animation: moveup 1s linear forwards;
+  transform: translateY(50px);
+  animation: moveup 3s linear forwards;
 
 }
 @keyframes moveup {
@@ -23,13 +24,22 @@ background-image: url(/public/beer-bubbles-abstract-bubbles-yellow-background_32
 }
 }
 
-
 .beer-hand {
-  width: 530px;
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  
+}
+
+/*.beer-hand {
+  width: 50%;
+  height: 50vh;
   position: absolute;
   bottom: 0;
-  right: 10%;
-}
+  right: 0%;
+}*/
 
 </style>
 </head>
@@ -38,7 +48,7 @@ background-image: url(/public/beer-bubbles-abstract-bubbles-yellow-background_32
   
 
 <div>
-<img src="/public/Hands-holding-glass-mugs-with-beer-on-transparent-background-PNG-removebg-preview (1).png" class = "beer-hand anim">
+<img src="/947FF6F6-2D74-484A-8DE7-B6BF31AB005E.png" class = "beer-hand anim">
 
 
 
@@ -53,10 +63,11 @@ background-image: url(/public/beer-bubbles-abstract-bubbles-yellow-background_32
 <div class="row">
   {{#each teams as |team|}}
   <div class="col">
-    <a href="/team/{{id}}"><div class="card">
-      <div class="card-body">
+    <a href="/team/{{id}}">
+    <div class="card" style="background-color: #389393">
+      <div class="card-body" style="color: white;">
         <h5 class="card-title">{{team_name}}</h5>
-        <p class="card-text">has {{users.length}} team member[s] in your <br>your team.</p>
+        <p class="card-text">has {{users.length}} guzzler[s].</p>
         {{#if team.isUserTeam}} 
         {{!-- <p>your team</p> --}}
         {{/if}}
