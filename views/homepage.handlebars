@@ -1,13 +1,64 @@
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>homepage</title>
+<style>
 
-<div class="row row-cols-1 row-cols-md-4 g-4">
+body {
+background-image: url(/public/beer-bubbles-abstract-bubbles-yellow-background_3248-267.avif);
+
+}
+
+.anim {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: moveup 1s linear forwards;
+
+}
+@keyframes moveup {
+100%{
+  opacity: 1;
+  transform: translateY(0px);
+}
+}
+
+
+.beer-hand {
+  width: 530px;
+  position: absolute;
+  bottom: 0;
+  right: 10%;
+}
+
+</style>
+</head>
+
+<body>
+  
+
+<div>
+<img src="/public/Hands-holding-glass-mugs-with-beer-on-transparent-background-PNG-removebg-preview (1).png" class = "beer-hand anim">
+
+
+
+
+</div>
+
+
+
+
+
+
+<div class="row">
   {{#each teams as |team|}}
   <div class="col">
     <a href="/team/{{id}}"><div class="card">
       <div class="card-body">
         <h5 class="card-title">{{team_name}}</h5>
-        <p class="card-text">has {{users.length}} team members</p>
+        <p class="card-text">has {{users.length}} team member[s] in your <br>your team.</p>
         {{#if team.isUserTeam}} 
-        <p>your team</p>
+        {{!-- <p>your team</p> --}}
         {{/if}}
       </div>
     </div></a>
@@ -39,3 +90,5 @@
   </div>
 </div>
 {{/each}} --}}
+ </body>
+</html>
