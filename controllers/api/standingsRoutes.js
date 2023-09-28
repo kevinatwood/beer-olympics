@@ -71,7 +71,7 @@ router.put('/', async (req, res) => {
               },
             ],
           });
-          const gameData = await Round.findAll({
+          const roundData = await Round.findAll({
             include: [
               {
                 model: Game,
@@ -83,7 +83,7 @@ router.put('/', async (req, res) => {
               },
             ],
           });
-      res.json({teamData,tournamentData, gameData})
+      res.json({teamData,tournamentData, roundData})
 } catch (err) {
     res.status(500).json(err);
   }
