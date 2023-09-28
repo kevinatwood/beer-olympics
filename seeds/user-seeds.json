@@ -85,17 +85,17 @@
           "password": "password12345",
           "team_id" : 7
         },
-        {
+         {
           "name": "Hannah",
           "email": "hannah@aol.com",
           "password": "password12345",
-          "team_id" : 8
+         "team_id" : 8
         },
-        {
-          "name": "Randolph",
-          "email": "dolph@aol.com",
-          "password": "password12345",
-          "team_id" : 8
-        }
+         {
+           "name": "Randolph",
+           "email": "dolph@aol.com",
+           "password": "password12345",
+           "team_id" : 8
+         }
   ]
   

@@ -12,6 +12,10 @@ const teamData = async () => {
       // Handle the data received from the server
       console.log(data)
 
+      for (let i=0; i < data.teamData.length; i++){
+        team1.push(data.teamData[i].team_name)
+      }
+      console.log(team1)
       // You can update your UI or perform other actions here
     } catch (error) {
       // Handle any errors that occurred during the fetch
@@ -272,52 +276,11 @@ b2t4.addEventListener("click", rnd2team4);
 b3t1.addEventListener("click", rnd3team1);
 b3t2.addEventListener("click", rnd3team2);
 
-}
+ }
   
   
-teamData()
-
-/*Template for PUT route
+ teamData()
 
 
-// Define the URL for the PUT request
-const url = '/api/standings'; // Replace with the actual route URL
+  
 
-// Define the data you want to send in the request body
-const requestData = {
-  id: 'your-team-id', // Replace with the team ID you want to update
-  round_one: null,     // Set to null to clear the round_one value
-  round_two: null,     // Set to null to clear the round_two value
-  round_three: null,   // Set to null to clear the round_three value
-  round_four: null     // Set to null to clear the round_four value
-};
-
-// Define the fetch options
-const requestOptions = {
-  method: 'PUT',
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify(requestData)
-};
-
-// Make the fetch request
-fetch(url, requestOptions)
-  .then(response => {
-    if (response.ok) {
-      return response.json();
-    } else {
-      throw new Error('Failed to update team'); // Handle error cases here
-    }
-  })
-  .then(data => {
-    // Handle the successful response data here
-    console.log('Team updated successfully:', data);
-  })
-  .catch(error => {
-    // Handle any errors that occurred during the fetch request
-    console.error('Error:', error);
-  });
-
-
-  */
