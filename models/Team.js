@@ -18,24 +18,24 @@ Team.init(
     },
     round_one: {
       type: DataTypes.INTEGER,
-      defaultValue: 0
+      allowNull: true,
     },
     round_two: {
       type: DataTypes.INTEGER,
-      defaultValue: 0
+      allowNull: true,
     },
     round_three: {
       type: DataTypes.INTEGER,
-      defaultValue: 0
+      allowNull: true,
     }, 
     round_four: {
       type: DataTypes.INTEGER,
-      defaultValue: 0
+      allowNull: true,
     }
   },
   {
     sequelize,
-    timestamps: false,
+    timestamps: true,
     freezeTableName: true,
     underscored: true,
     modelName: 'team',

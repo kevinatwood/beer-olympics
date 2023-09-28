@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Team, User } = require('../models');
+const { Team, User, Tournament, Round, Game} = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -104,18 +104,42 @@ router.get('/standings', async (req, res) => {
         },
       ],
     });
-
+    const tournamentData = await Tournament.findAll({
+      include: [
+        {
+          model: Round,
+          attributes: ['number']
+        },
+      ],
+    });
+    const roundData = await Round.findAll({
+      include: [
+        {
+          model: Game,
+          attributes: ['team_one', 'team_two', 'winner'],
+        },
+        {
+          model: Team,
+          attributes: ['team_name'],
+        },
+      ],
+    });
     // Serialize data so the template can read it
     const teams = teamData.map((team) => team.get({ plain: true }));
+    const rounds = roundData.map((game) => game.get({ plain: true }));
+    const tournament = tournamentData.map((tourney) => tourney.get({ plain: true }));
      console.log(teams)
 
     // Pass serialized data and session flag into template
     res.render('standings', { 
       teams, 
+      rounds,
+     tournament,
       logged_in: req.session.logged_in 
     });
   } catch (err) {
     res.status(500).json(err);
+    console.error(err)
   }
 });
 

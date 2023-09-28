@@ -1,0 +1,45 @@
+[
+    {
+        "team_one": 1,
+        "team_two": 2,
+        "winner" : 1, 
+        "round_id": 1
+    },
+    {
+        "team_one": 3,
+        "team_two": 4,
+        "winner" : 4, 
+        "round_id": 1
+    },
+    {
+        "team_one": 5,
+        "team_two": 6,
+        "winner" : 6, 
+        "round_id": 1
+    },
+    {
+        "team_one": 7,
+        "team_two": 8,
+        "winner" : 8, 
+        "round_id": 1
+    },
+    {
+        "team_one": 1,
+        "team_two": 4,
+        "winner" : 1, 
+        "round_id": 2
+    },
+    {
+        "team_one": 6,
+        "team_two": 8,
+        "winner" : 8, 
+        "round_id": 2
+    },
+    {
+        "team_one": 1,
+        "team_two": 8,
+        "winner" : 1, 
+        "round_id": 3
+    }
+
+]
